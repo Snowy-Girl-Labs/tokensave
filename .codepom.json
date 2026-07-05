@@ -1,0 +1,18 @@
+{
+  "reviewMode": "consensus",
+  "minSeverity": "low",
+  "models": {
+    "reviewer": "qwen-thinking",
+    "structurer": "nemotron-nano",
+    "arbiter": "nemotron-nano"
+  },
+  "fix": {
+    "enabled": true,
+    "threshold": "low"
+  },
+  "checks": {
+    // Checks configuration: failOn defines the severity threshold for CI failures; enabled toggles the check suite.
+    "failOn": "Major",
+    "enabled": true
+  }
+}
