@@ -59,6 +59,12 @@ impl AgentIntegration for AntigravityIntegration {
                 return Err(e);
             }
         };
+        if !settings.is_object() {
+            settings = json!({});
+        }
+        if !settings["mcpServers"].is_object() {
+            settings["mcpServers"] = json!({});
+        }
         let bin = crate::agents::preserve_mcp_command(
             settings.pointer("/mcpServers/tokensave/command"),
             &ctx.tokensave_bin,
@@ -90,6 +96,12 @@ impl AgentIntegration for AntigravityIntegration {
                 return Err(e);
             }
         };
+        if !cli_settings.is_object() {
+            cli_settings = json!({});
+        }
+        if !cli_settings["mcpServers"].is_object() {
+            cli_settings["mcpServers"] = json!({});
+        }
         let cli_bin = crate::agents::preserve_mcp_command(
             cli_settings.pointer("/mcpServers/tokensave/command"),
             &ctx.tokensave_bin,
